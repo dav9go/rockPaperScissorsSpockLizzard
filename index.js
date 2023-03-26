@@ -131,49 +131,68 @@ function showHouseChoice() {
     const resultNumber = document.querySelector(".result-number");
     const result = document.querySelector(".result");
     const resultText = document.querySelector(".result-text");
+    const userSelected = document.querySelector(`.${userChoice}-choice`);
+    const userChoiceMovement = document.querySelector(".user-choice");
+    const houseChoiceMovement = document.querySelector(".house-choice");
     if (userChoice === randomOption) {
       resultText.innerText = "It's a tie!";
     } else {
       if (userChoice === "rock") {
         if (randomOption === "scissors" || randomOption === "lizzard") {
           resultText.innerText = "You win!";
+          userSelected.style.boxShadow = "0 0 25px 25px #fff";
           score++;
         } else {
           resultText.innerText = "You lose!";
+          houseChoiceItem.style.boxShadow = "0 0 25px 25px #fff";
         }
       } else if (userChoice === "paper") {
         if (randomOption === "rock" || randomOption === "spock") {
           resultText.innerText = "You win!";
+          userSelected.style.boxShadow = "0 0 25px 25px #fff";
           score++;
         } else {
           resultText.innerText = "You lose!";
+          houseChoiceItem.style.boxShadow = "0 0 25px 25px #fff";
         }
       } else if (userChoice === "scissors") {
         if (randomOption === "paper" || randomOption === "lizzard") {
           resultText.innerText = "You win!";
+          userSelected.style.boxShadow = "0 0 25px 25px #fff";
           score++;
         } else {
           resultText.innerText = "You lose!";
+          houseChoiceItem.style.boxShadow = "0 0 25px 25px #fff";
         }
       } else if (userChoice === "lizzard") {
         if (randomOption === "paper" || randomOption === "spock") {
           resultText.innerText = "You win!";
+          userSelected.style.boxShadow = "0 0 25px 25px #fff";
           score++;
         } else {
           resultText.innerText = "You lose!";
+          houseChoiceItem.style.boxShadow = "0 0 25px 25px #fff";
         }
       } else if (userChoice === "spock") {
         if (randomOption === "rock" || randomOption === "scissors") {
           resultText.innerText = "You win!";
-
+          userSelected.style.boxShadow = "0 0 25px 25px #fff";
           score++;
         } else {
           resultText.innerText = "You lose!";
+          houseChoiceItem.style.boxShadow = "0 0 25px 25px #fff";
         }
       }
     }
 
     result.style.display = "flex";
     resultNumber.innerText = score;
+    if (window.innerWidth > 900) {
+      userChoiceMovement.setAttribute("move", "yes");
+      houseChoiceMovement.setAttribute("move", "yes");
+      setTimeout(function () {
+        result.setAttribute("move", "yes");
+      }, 1);
+    }
   }
 }

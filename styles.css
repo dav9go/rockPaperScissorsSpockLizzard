@@ -299,6 +299,11 @@ button {
   gap: 2rem;
 }
 
+.result[move="yes"] {
+  transform: translateY(-200px);
+  transition: transform 0.75s ease-in;
+}
+
 .result .result-text {
   font-size: 4rem;
   color: white;
@@ -314,8 +319,14 @@ button {
   cursor: pointer;
 }
 
-.winner-shadow {
-  box-shadow: 10px 10px 10px 0.5rem white;
+.user-choice[move="yes"] {
+  transform: translateX(-200px);
+  transition: transform 0.75s ease-in;
+}
+
+.house-choice[move="yes"] {
+  transform: translateX(200px);
+  transition: transform 0.75s ease-in;
 }
 
 /*********************************************/
