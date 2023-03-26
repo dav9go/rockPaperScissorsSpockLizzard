@@ -1,0 +1,499 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+:root {
+  /***Colors***/
+  /*Primary*/
+  --col-scissors-gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+  --col-paper-gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+  --col-rock-gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+  --col-lizard-gradient: hsl(261, 73%, 60%), hsl(261, 72%, 63%);
+  --col-cyan: hsl(189, 59%, 53%), hsl(189, 58%, 57%);
+  /*Neutral*/
+  --col-dark-text: hsl(229, 25%, 31%);
+  --col-score-text: hsl(229, 64%, 46%);
+  --col-header-outline: hsl(217, 16%, 45%);
+  /*Background*/
+  --col-radial-gradient: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
+  /*Font*/
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, var(--col-radial-gradient));
+}
+
+header {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/****************SCREEN 1****************/
+
+.rules {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+.title {
+  display: none;
+}
+
+.rules-container {
+  width: 100%;
+  height: 100%;
+}
+
+.rules-box {
+  width: 100%;
+  height: 100%;
+}
+
+.rules-img {
+  width: 100%;
+  height: 100%;
+  background-image: url("./design/bonus/mobile-rules-modal-bonus.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 3px solid var(--col-header-outline);
+}
+
+h1 {
+  margin: 1rem;
+  font-size: 1rem;
+  line-height: 0.75rem;
+  color: white;
+}
+
+.score .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  height: 100%;
+  border-radius: 0.25rem;
+  padding: 1rem 1.5rem;
+}
+
+.box h2 {
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+  color: var(--col-header-outline);
+}
+
+.box p {
+  font-size: 2rem;
+  color: var(--col-header-outline);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.screen1 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.screen2 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+img {
+  position: relative;
+  width: 250px;
+}
+
+svg {
+  transform: scale(0.75);
+}
+
+.choice svg {
+  transform: scale(1);
+}
+
+.action {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+}
+
+.choice {
+  background-color: white;
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  cursor: pointer;
+}
+
+.circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paper {
+  transform: translate(calc(cos(-16deg) * 125px), calc(sin(-16deg) * 115px));
+}
+
+.paper.action,
+.paper-choice {
+  outline: 10px solid hsl(230, 89%, 65%);
+}
+
+.rock {
+  transform: translate(calc(cos(56deg) * 125px), calc(sin(56deg) * 115px));
+}
+
+.rock.action,
+.rock-choice {
+  outline: 10px solid hsl(349, 70%, 56%);
+}
+
+.lizzard {
+  transform: translate(calc(cos(128deg) * 125px), calc(sin(128deg) * 115px));
+}
+
+.lizzard.action,
+.lizzard-choice {
+  outline: 10px solid hsl(261, 72%, 63%);
+}
+
+.spock {
+  transform: translate(calc(cos(200deg) * 125px), calc(sin(200deg) * 115px));
+}
+
+.spock.action,
+.spock-choice {
+  outline: 10px solid hsl(189, 58%, 57%);
+}
+.scissors {
+  transform: translate(calc(cos(272deg) * 125px), calc(sin(272deg) * 115px));
+}
+
+.scissors.action,
+.scissors-choice {
+  outline: 10px solid hsl(40, 84%, 53%);
+}
+
+footer {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font-size: 1.1rem;
+  color: white;
+  letter-spacing: 0.1rem;
+  padding: 0.8rem 2.25rem;
+  border-radius: 0.4rem;
+  border: 1px solid white;
+  background: transparent;
+}
+
+/****************************************/
+/****************SCREEN 2****************/
+
+.choices {
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.choice-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pick-text {
+  font-size: 1rem;
+  color: white;
+  letter-spacing: 0.1rem;
+}
+
+.empty-circle {
+  position: relative;
+  background-color: var(--col-dark-text);
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+}
+
+.house-choice-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.paper-choice {
+  outline: 20px solid hsl(230, 89%, 65%);
+}
+
+.rock-choice {
+  outline: 20px solid hsl(349, 70%, 56%);
+}
+
+.lizzard-choice {
+  outline: 20px solid hsl(261, 72%, 63%);
+}
+
+.spock-choice {
+  outline: 20px solid hsl(189, 58%, 57%);
+}
+.scissors-choice {
+  outline: 20px solid hsl(40, 84%, 53%);
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.result .result-text {
+  font-size: 4rem;
+  color: white;
+  letter-spacing: 0.1rem;
+}
+
+.result .play-again {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  background-color: white;
+  color: hsl(214, 47%, 23%);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.winner-shadow {
+  box-shadow: 10px 10px 10px 0.5rem white;
+}
+
+/*********************************************/
+/****************MEDIA QUERIES****************/
+
+@media screen and (min-width: 900px) {
+  /****************SCREEN 1****************/
+  header {
+    height: 20vh;
+  }
+
+  .rules {
+    background-color: hsla(220, 5%, 34%, 0.516);
+  }
+
+  .rules-container {
+    position: relative;
+  }
+
+  .rules-box {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    min-width: 500px;
+    height: 60%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .rules-img {
+    width: 100%;
+    background-image: url("images/image-rules-bonus.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  h1 {
+    margin: 0rem;
+    font-size: 1.25rem;
+    line-height: 1rem;
+  }
+
+  .score .box {
+    height: 100%;
+    border-radius: 0.25rem;
+    padding: 1rem 2.25rem;
+  }
+
+  img {
+    width: 500px;
+  }
+
+  svg {
+    transform: scale(1);
+  }
+
+  .action {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+  }
+
+  .paper {
+    transform: translate(calc(cos(-16deg) * 250px), calc(sin(-16deg) * 230px));
+  }
+
+  .paper.action {
+    outline: 20px solid hsl(230, 89%, 65%);
+  }
+
+  .rock {
+    transform: translate(calc(cos(56deg) * 250px), calc(sin(56deg) * 230px));
+  }
+
+  .rock.action {
+    outline: 20px solid hsl(349, 70%, 56%);
+  }
+
+  .lizzard {
+    transform: translate(calc(cos(128deg) * 250px), calc(sin(128deg) * 230px));
+  }
+
+  .lizzard.action {
+    outline: 20px solid hsl(261, 72%, 63%);
+  }
+
+  .spock {
+    transform: translate(calc(cos(200deg) * 250px), calc(sin(200deg) * 230px));
+  }
+
+  .spock.action {
+    outline: 20px solid hsl(189, 58%, 57%);
+  }
+
+  .scissors {
+    transform: translate(calc(cos(272deg) * 250px), calc(sin(272deg) * 230px));
+  }
+  .scissors.action {
+    outline: 20px solid hsl(40, 84%, 53%);
+  }
+
+  footer {
+    height: 10vh;
+    justify-content: flex-end;
+    padding: 1.5rem;
+  }
+
+  /****************************************/
+  /****************SCREEN 2****************/
+
+  .choices {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+    align-items: center;
+  }
+
+  .choice-block {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .choice {
+    width: 250px;
+    height: 250px;
+  }
+
+  .choice svg {
+    transform: scale(2);
+  }
+
+  .pick-text {
+    font-size: 1.25rem;
+  }
+
+  .empty-circle {
+    position: relative;
+    width: 250px;
+    height: 250px;
+  }
+
+  .paper-choice {
+    outline: 30px solid hsl(230, 89%, 65%);
+  }
+
+  .rock-choice {
+    outline: 30px solid hsl(349, 70%, 56%);
+  }
+
+  .lizzard-choice {
+    outline: 30px solid hsl(261, 72%, 63%);
+  }
+
+  .spock-choice {
+    outline: 30px solid hsl(189, 58%, 57%);
+  }
+
+  .scissors-choice {
+    outline: 30px solid hsl(40, 84%, 53%);
+  }
+}
